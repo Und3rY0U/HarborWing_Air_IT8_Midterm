@@ -445,7 +445,7 @@ def write_sql_seed_file(data, filepath):
         f.write("-- Seed completed successfully.\n")
     print(f"[OK] Successfully generated {filepath}!")
 
-def seed_mysql_directly(data, host="localhost", port=3306, user="root", password="", database="harborwing_air"):
+def seed_mysql_directly(data, host="localhost", port=3306, user="root", password="root", database="harborwing_air"):
     try:
         import mysql.connector
     except ImportError:

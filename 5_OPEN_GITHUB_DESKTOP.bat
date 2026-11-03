@@ -1,3 +1,0 @@
-@echo off
-title Opening GitHub Desktop...
-start "" "%LOCALAPPDATA%\GitHubDesktop\GitHubDesktop.exe"

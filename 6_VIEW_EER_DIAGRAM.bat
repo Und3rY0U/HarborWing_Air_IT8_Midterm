@@ -1,3 +1,0 @@
-@echo off
-title Opening EER Diagram...
-start "" "%~dp0harborwing_diagram.svg"

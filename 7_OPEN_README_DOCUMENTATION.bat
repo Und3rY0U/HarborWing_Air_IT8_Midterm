@@ -1,3 +1,0 @@
-@echo off
-title Opening README Documentation...
-start "" "%~dp0README.md"
