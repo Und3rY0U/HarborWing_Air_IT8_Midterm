@@ -1,2 +1,6 @@
 # Ignore Windows shortcut files
 *.lnk
+
+*.msi
+*.log
+*.tmp
