@@ -1,0 +1,200 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 950" width="100%" height="100%" style="background:#0f172a; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#38bdf8"/>
+    </marker>
+    <marker id="circle" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6">
+      <circle cx="5" cy="5" r="3" fill="#38bdf8"/>
+    </marker>
+  </defs>
+
+  <!-- Title Banner -->
+  <text x="700" y="45" text-anchor="middle" fill="#f8fafc" font-size="24" font-weight="bold" letter-spacing="1">HARBORWING AIR - RELATIONAL DATABASE EER DIAGRAM</text>
+  <text x="700" y="72" text-anchor="middle" fill="#94a3b8" font-size="14">IT8 Midterm Laboratory Drill | 11 Core Tables (InnoDB, 3NF Normalized)</text>
+
+  <!-- Relationships Paths -->
+  <!-- Passenger -> Reservation -->
+  <path d="M 230 260 L 230 330" fill="none" stroke="#38bdf8" stroke-width="2" marker-start="url(#circle)" marker-end="url(#arrow)"/>
+  
+  <!-- Booking Agent -> Reservation -->
+  <path d="M 460 215 L 340 375" fill="none" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4" marker-end="url(#arrow)"/>
+
+  <!-- Reservation -> Reservation_Payment -->
+  <path d="M 340 450 L 460 450" fill="none" stroke="#38bdf8" stroke-width="2" marker-start="url(#circle)" marker-end="url(#arrow)"/>
+
+  <!-- Payment -> Reservation_Payment -->
+  <path d="M 720 450 L 670 450" fill="none" stroke="#38bdf8" stroke-width="2" marker-start="url(#circle)" marker-end="url(#arrow)"/>
+
+  <!-- Reservation -> Reservation_Leg -->
+  <path d="M 230 535 L 230 610" fill="none" stroke="#38bdf8" stroke-width="2" marker-start="url(#circle)" marker-end="url(#arrow)"/>
+
+  <!-- Flight_Leg -> Reservation_Leg -->
+  <path d="M 500 665 L 340 665" fill="none" stroke="#38bdf8" stroke-width="2" marker-start="url(#circle)" marker-end="url(#arrow)"/>
+
+  <!-- Flight_Schedule -> Flight_Leg -->
+  <path d="M 610 300 L 610 590" fill="none" stroke="#38bdf8" stroke-width="2" marker-start="url(#circle)" marker-end="url(#arrow)"/>
+
+  <!-- Flight_Schedule -> Flight_Cost -->
+  <path d="M 720 200 L 850 200" fill="none" stroke="#38bdf8" stroke-width="2" marker-start="url(#circle)" marker-end="url(#arrow)"/>
+
+  <!-- Calendar_Date -> Flight_Cost (valid_from & valid_to) -->
+  <path d="M 1190 200 L 1070 200" fill="none" stroke="#38bdf8" stroke-width="2" marker-start="url(#circle)" marker-end="url(#arrow)"/>
+
+  <!-- Airport -> Flight_Schedule (origin/dest) -->
+  <path d="M 750 140 L 720 140" fill="none" stroke="#38bdf8" stroke-width="2" marker-start="url(#circle)" marker-end="url(#arrow)"/>
+
+  <!-- Airport -> Flight_Leg -->
+  <path d="M 850 170 C 850 630, 750 630, 720 630" fill="none" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ==================== TABLES ==================== -->
+
+  <!-- 1. PASSENGER -->
+  <g transform="translate(100, 110)" filter="url(#shadow)">
+    <rect width="260" height="150" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+    <rect width="260" height="32" rx="8" fill="#0284c7"/>
+    <text x="12" y="22" fill="#ffffff" font-size="14" font-weight="bold">passenger</text>
+    <text x="12" y="52" fill="#38bdf8" font-size="12" font-weight="bold">PK  passenger_id: INT</text>
+    <text x="12" y="70" fill="#f1f5f9" font-size="12">first_name, last_name: VARCHAR</text>
+    <text x="12" y="88" fill="#94a3b8" font-size="12">second_name: VARCHAR (NULL)</text>
+    <text x="12" y="106" fill="#f1f5f9" font-size="12">email_address: VARCHAR (UQ)</text>
+    <text x="12" y="124" fill="#f1f5f9" font-size="12">phone_number, address: VARCHAR</text>
+    <text x="12" y="142" fill="#94a3b8" font-size="12">city, state, country: VARCHAR</text>
+  </g>
+
+  <!-- 2. BOOKING_AGENT -->
+  <g transform="translate(430, 110)" filter="url(#shadow)">
+    <rect width="240" height="105" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+    <rect width="240" height="32" rx="8" fill="#0284c7"/>
+    <text x="12" y="22" fill="#ffffff" font-size="14" font-weight="bold">booking_agent</text>
+    <text x="12" y="52" fill="#38bdf8" font-size="12" font-weight="bold">PK  agent_id: INT</text>
+    <text x="12" y="72" fill="#f1f5f9" font-size="12">name: VARCHAR(100)</text>
+    <text x="12" y="92" fill="#94a3b8" font-size="12">additional_details: TEXT</text>
+  </g>
+
+  <!-- 3. RESERVATION -->
+  <g transform="translate(100, 330)" filter="url(#shadow)">
+    <rect width="260" height="205" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+    <rect width="260" height="32" rx="8" fill="#0369a1"/>
+    <text x="12" y="22" fill="#ffffff" font-size="14" font-weight="bold">reservation</text>
+    <text x="12" y="52" fill="#38bdf8" font-size="12" font-weight="bold">PK  reservation_id: INT</text>
+    <text x="12" y="72" fill="#fbbf24" font-size="12">FK  main_passenger_id: INT</text>
+    <text x="12" y="92" fill="#fbbf24" font-size="12">FK  booking_agent_id: INT (NULL)</text>
+    <text x="12" y="112" fill="#f1f5f9" font-size="12">reservation_status_code: VARCHAR</text>
+    <text x="12" y="132" fill="#f1f5f9" font-size="12">ticket_type_code: VARCHAR</text>
+    <text x="12" y="152" fill="#f1f5f9" font-size="12">travel_class_code: VARCHAR</text>
+    <text x="12" y="172" fill="#f1f5f9" font-size="12">creation_date_time: DATETIME</text>
+    <text x="12" y="192" fill="#a7f3d0" font-size="12">number_in_party: INT (> 0)</text>
+  </g>
+
+  <!-- 4. RESERVATION_PAYMENT (LINK) -->
+  <g transform="translate(460, 395)" filter="url(#shadow)">
+    <rect width="210" height="110" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <rect width="210" height="32" rx="8" fill="#b45309"/>
+    <text x="12" y="22" fill="#ffffff" font-size="13" font-weight="bold">reservation_payment (Link)</text>
+    <text x="12" y="54" fill="#fbbf24" font-size="12" font-weight="bold">PK, FK  reservation_id: INT</text>
+    <text x="12" y="74" fill="#fbbf24" font-size="12" font-weight="bold">PK, FK  payment_id: INT</text>
+    <text x="12" y="96" fill="#94a3b8" font-size="11">Resolves N:M (No alloc amount)</text>
+  </g>
+
+  <!-- 5. PAYMENT -->
+  <g transform="translate(720, 385)" filter="url(#shadow)">
+    <rect width="230" height="130" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+    <rect width="230" height="32" rx="8" fill="#0284c7"/>
+    <text x="12" y="22" fill="#ffffff" font-size="14" font-weight="bold">payment</text>
+    <text x="12" y="52" fill="#38bdf8" font-size="12" font-weight="bold">PK  payment_id: INT</text>
+    <text x="12" y="72" fill="#f1f5f9" font-size="12">payment_status_code: VARCHAR</text>
+    <text x="12" y="92" fill="#f1f5f9" font-size="12">payment_date: DATETIME</text>
+    <text x="12" y="112" fill="#a7f3d0" font-size="12">payment_amount: DECIMAL (> 0)</text>
+  </g>
+
+  <!-- 6. RESERVATION_LEG (LINK) -->
+  <g transform="translate(100, 610)" filter="url(#shadow)">
+    <rect width="240" height="110" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <rect width="240" height="32" rx="8" fill="#b45309"/>
+    <text x="12" y="22" fill="#ffffff" font-size="13" font-weight="bold">reservation_leg (Link)</text>
+    <text x="12" y="54" fill="#fbbf24" font-size="12" font-weight="bold">PK, FK  reservation_id: INT</text>
+    <text x="12" y="74" fill="#fbbf24" font-size="12" font-weight="bold">PK, FK  leg_id: INT</text>
+    <text x="12" y="96" fill="#94a3b8" font-size="11">Resolves N:M (Connecting flights)</text>
+  </g>
+
+  <!-- 7. FLIGHT_LEG -->
+  <g transform="translate(500, 590)" filter="url(#shadow)">
+    <rect width="220" height="150" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+    <rect width="220" height="32" rx="8" fill="#0284c7"/>
+    <text x="12" y="22" fill="#ffffff" font-size="14" font-weight="bold">flight_leg</text>
+    <text x="12" y="52" fill="#38bdf8" font-size="12" font-weight="bold">PK  leg_id: INT</text>
+    <text x="12" y="72" fill="#fbbf24" font-size="12">FK  scheduled_flight: VARCHAR</text>
+    <text x="12" y="92" fill="#fbbf24" font-size="12">FK  origin_airport: CHAR(3)</text>
+    <text x="12" y="112" fill="#fbbf24" font-size="12">FK  destination_airport: CHAR(3)</text>
+    <text x="12" y="132" fill="#f1f5f9" font-size="12">actual_departure, arrival (NULL)</text>
+  </g>
+
+  <!-- 8. FLIGHT_SCHEDULE -->
+  <g transform="translate(500, 110)" filter="url(#shadow)">
+    <rect width="220" height="190" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+    <rect width="220" height="32" rx="8" fill="#0284c7"/>
+    <text x="12" y="22" fill="#ffffff" font-size="14" font-weight="bold">flight_schedule</text>
+    <text x="12" y="52" fill="#38bdf8" font-size="12" font-weight="bold">PK  flight_number: VARCHAR(10)</text>
+    <text x="12" y="72" fill="#f1f5f9" font-size="12">airline_code: CHAR(2)</text>
+    <text x="12" y="92" fill="#f1f5f9" font-size="12">usual_aircraft_type_code: VARCHAR</text>
+    <text x="12" y="112" fill="#fbbf24" font-size="12">FK  origin_airport: CHAR(3)</text>
+    <text x="12" y="132" fill="#fbbf24" font-size="12">FK  destination_airport: CHAR(3)</text>
+    <text x="12" y="152" fill="#f1f5f9" font-size="12">scheduled_departure_time</text>
+    <text x="12" y="172" fill="#f1f5f9" font-size="12">scheduled_arrival_time</text>
+  </g>
+
+  <!-- 9. AIRPORT -->
+  <g transform="translate(750, 80)" filter="url(#shadow)">
+    <rect width="210" height="110" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+    <rect width="210" height="32" rx="8" fill="#0284c7"/>
+    <text x="12" y="22" fill="#ffffff" font-size="14" font-weight="bold">airport</text>
+    <text x="12" y="52" fill="#38bdf8" font-size="12" font-weight="bold">PK  airport_code: CHAR(3)</text>
+    <text x="12" y="72" fill="#f1f5f9" font-size="12">name: VARCHAR(100)</text>
+    <text x="12" y="92" fill="#f1f5f9" font-size="12">location: VARCHAR(100)</text>
+  </g>
+
+  <!-- 10. FLIGHT_COST -->
+  <g transform="translate(850, 140)" filter="url(#shadow)">
+    <rect width="220" height="160" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+    <rect width="220" height="32" rx="8" fill="#0284c7"/>
+    <text x="12" y="22" fill="#ffffff" font-size="14" font-weight="bold">flight_cost</text>
+    <text x="12" y="52" fill="#38bdf8" font-size="12" font-weight="bold">PK, FK  flight_number: VARCHAR</text>
+    <text x="12" y="72" fill="#38bdf8" font-size="12" font-weight="bold">PK  aircraft_type_code: VARCHAR</text>
+    <text x="12" y="92" fill="#38bdf8" font-size="12" font-weight="bold">PK, FK  valid_from_date: DATE</text>
+    <text x="12" y="112" fill="#fbbf24" font-size="12">FK  valid_to_date: DATE</text>
+    <text x="12" y="132" fill="#a7f3d0" font-size="12">cost_amount: DECIMAL (>= 0)</text>
+  </g>
+
+  <!-- 11. CALENDAR_DATE -->
+  <g transform="translate(1120, 140)" filter="url(#shadow)">
+    <rect width="200" height="110" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+    <rect width="200" height="32" rx="8" fill="#0284c7"/>
+    <text x="12" y="22" fill="#ffffff" font-size="14" font-weight="bold">calendar_date</text>
+    <text x="12" y="52" fill="#38bdf8" font-size="12" font-weight="bold">PK  date: DATE</text>
+    <text x="12" y="72" fill="#f1f5f9" font-size="12">day_of_the_month: INT</text>
+    <text x="12" y="92" fill="#f1f5f9" font-size="12">business_day_indicator: BOOL</text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(100, 800)">
+    <rect width="1200" height="60" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="35" fill="#f8fafc" font-size="13" font-weight="bold">LEGEND:</text>
+    <rect x="100" y="23" width="14" height="14" rx="2" fill="#38bdf8"/>
+    <text x="122" y="35" fill="#e2e8f0" font-size="12">Primary Key (PK)</text>
+    <rect x="250" y="23" width="14" height="14" rx="2" fill="#fbbf24"/>
+    <text x="272" y="35" fill="#e2e8f0" font-size="12">Foreign Key (FK)</text>
+    <rect x="400" y="23" width="14" height="14" rx="2" fill="#f59e0b"/>
+    <text x="422" y="35" fill="#e2e8f0" font-size="12">Linking Table (N:M Junction)</text>
+    <rect x="630" y="23" width="14" height="14" rx="2" fill="#a7f3d0"/>
+    <text x="652" y="35" fill="#e2e8f0" font-size="12">CHECK Validation Constraints</text>
+    <line x1="880" y1="30" x2="920" y2="30" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="930" y="35" fill="#e2e8f0" font-size="12">1-to-Many Relationship</text>
+  </g>
+</svg>
